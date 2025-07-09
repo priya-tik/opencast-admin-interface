@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Formik } from "formik";
 import { useTranslation } from "react-i18next";
 import cn from "classnames";
@@ -7,10 +7,11 @@ import UserRolesTab from "./UserRolesTab";
 import { initialFormValuesNewUser } from "../../../../configs/modalConfig";
 import { getUsernames } from "../../../../selectors/userSelectors";
 import { NewUserSchema } from "../../../../utils/validate";
-import { NewUser, postNewUser } from "../../../../slices/userSlice";
+import { NewUser, postNewUser, UserRole } from "../../../../slices/userSlice";
 import { useAppDispatch, useAppSelector } from "../../../../store";
 import ButtonLikeAnchor from "../../../shared/ButtonLikeAnchor";
 import WizardNavigationButtons from "../../../shared/wizard/WizardNavigationButtons";
+import { Role } from "../../../../slices/aclSlice";
 
 /**
  * This component renders the new user wizard
@@ -37,8 +38,22 @@ const NewUserWizard = ({
 		setTab(tabNr);
 	};
 
-	const handleSubmit = (values: NewUser) => {
-		const response = dispatch(postNewUser(values));
+	const handleSubmit = (values: {
+			username: string,
+			name: string,
+			email: string,
+			password: string,
+			roles: Role[],
+			assignedRoles: UserRole[],
+	}) => {
+		const newValues: NewUser = {
+			username: values.username,
+			name: values.name,
+			email: values.email,
+			password: values.password,
+			roles: values.assignedRoles,
+		};
+		const response = dispatch(postNewUser(newValues));
 		console.info(response);
 		close();
 	};
@@ -66,10 +81,10 @@ const NewUserWizard = ({
 			<Formik
 				initialValues={initialFormValuesNewUser}
 				validationSchema={NewUserSchema(usernames)}
-				onSubmit={(values) => handleSubmit(values)}
+				onSubmit={values => handleSubmit(values)}
 			>
 				{/* Render wizard tabs depending on current value of tab variable */}
-				{(formik) => {
+				{formik => {
 					// eslint-disable-next-line react-hooks/rules-of-hooks
 					useEffect(() => {
 						formik.validateForm();

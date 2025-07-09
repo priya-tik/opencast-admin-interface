@@ -103,7 +103,8 @@
 			"SELECTED_COLUMNS": "Izbrani stolpci",
 			"FOOTER_TEXT": "Vrstni red in izbor bosta samodejno shranjena. Pritisnite »{{resetTranslation}}«, da obnovite privzeti pogled.",
 			"ADD_COLUMN": "Add column",
-			"REMOVE_COLUMN": "Remove column"
+			"REMOVE_COLUMN": "Remove column",
+			"DRAG_HANDLE_USAGE_INSTRUCTIONS": "Press space bar to start a drag. When dragging you can use the arrow keys to move the item around and escape to cancel. Some screen readers may require you to be in focus mode or to use your pass through key"
 		}
 	},
 	"CONFIRMATIONS": {
@@ -175,7 +176,7 @@
 		"SERIES_PATH_NOT_UPDATED": "The series path could not be updated",
 		"SERIES_PATH_NOT_REMOVED": "The series path could not be removed",
 		"EVENTS_CREATED": "Dogodek je ustvarjen",
-		"EVENTS_UPLOAD_STARTED": "Dogodek se nalaga ...",
+		"EVENTS_UPLOAD_STARTED": "The event \"{{ title }}\" is being uploaded… {{ progress }}%",
 		"EVENTS_NOT_CREATED": "Dogodka ni bilo mogoče ustvariti",
 		"EVENTS_UPDATED": "The event has been successfully updated",
 		"EVENTS_UPDATED_ALL": "Vsi dogodki so uspešno posodobljeni",
@@ -184,6 +185,8 @@
 		"EVENTS_NOT_UPDATED_ALL": "Nobenega od dogodkov ni bilo mogoče shraniti",
 		"EVENTS_PROCESSING_DELETE_WORKFLOW": "Izbrisan potek dela.",
 		"EVENTS_PROCESSING_DELETE_WORKFLOW_FAILED": "Poteka dela ni bilo mogoče izbrisati.",
+		"EVENTS_PROCESSING_ACTION_STOP": "The event processing has been stopped.",
+		"EVENTS_PROCESSING_ACTION_NON_STOP": "The event processing could not be stopped.",
 		"SERIES_NOT_UPDATED": "Serije ni bilo mogoče shraniti",
 		"EVENT_DELETED": "The event has been deleted.",
 		"EVENT_WILL_BE_DELETED": "The event is being deleted",
@@ -892,7 +895,7 @@
 						"ADDITIONAL_ACTIONS": "Dodatna dejanja",
 						"ACTION": "Dejanja",
 						"NEW": "Nov pravilnik",
-						"DETAILS": "Podrobnosti"
+						"DETAILS": "Details"
 					},
 					"ROLES": {
 						"LABEL": "Select or create a role"
@@ -1171,7 +1174,10 @@
 				"TOOLTIP": {
 					"SERIES": "Filtriraj posnetke za to zbirko",
 					"DETAILS": "Odpri podrobnosti zbirke",
-					"DELETE": "Izbriši zbirko"
+					"DELETE": "Izbriši zbirko",
+					"CREATION": "Filter for this creation date",
+					"ORGANIZER": "Filter for this organizer",
+					"CONTRIBUTORS": "Filter for this contributor"
 				}
 			},
 			"DETAILS": {
@@ -1202,7 +1208,7 @@
 						"ADDITIONAL_ACTIONS": "Dodatna dejanja",
 						"ACTION": "Dejanja",
 						"NEW": "Nov pravilnik",
-						"DETAILS": "Podrobnosti",
+						"DETAILS": "Details",
 						"REPLACE_EVENT_ACLS": "Update series permissions",
 						"REPLACE_EVENT_ACLS_HINT": "Ensure all events of this series have these permissions in effect",
 						"LOAD_MORE_LIMIT": "policies shown.",
@@ -1461,7 +1467,7 @@
 						"ADDITIONAL_ACTIONS": "Dodatna dejanja",
 						"ACTION": "Dejanja",
 						"NEW": "Nov pravilnik",
-						"DETAILS": "Podrobnosti",
+						"DETAILS": "Details",
 						"DESCRIPTION": "Izberite vnaprej nastavljen komplet pravilnikov ali spodaj dodajte pravilnike po meri"
 					},
 					"ROLES": {
@@ -1693,7 +1699,6 @@
 				"HOST_NAME": "Ime gostitelja",
 				"NODE_NAME": "Node name",
 				"CORES": "Jedra",
-				"COMPLETED": "Dokončani posli",
 				"RUNNING": "Posli, ki se izvajajo",
 				"QUEUED": "Posli v čakalni vrsti",
 				"MAINTENANCE": "Vzdrževanje",
@@ -1704,6 +1709,7 @@
 		"SERVICES": {
 			"TABLE": {
 				"CAPTION": "Storitve",
+				"ONLINE": "Online",
 				"STATUS": "Stanje",
 				"NAME": "Ime storitve",
 				"HOST_NAME": "Ime gostitelja",
@@ -1974,6 +1980,8 @@
 	"TABLE_EDIT": "Uredi",
 	"TABLE_NEXT": "Next page",
 	"TABLE_PREVIOUS": "Previous page",
+	"TABLE_CURRENT": "Current page {{pageNumber}}",
+	"TABLE_NUMBERED": "Go to page {{pageNumber}}",
 	"DASHBOARD": {
 		"RUNNING": "Izvajanje",
 		"FINISHED": "Dokončano",
@@ -1981,7 +1989,8 @@
 		"FAILED": "Ni uspelo",
 		"FINISHED_WITH_COMMENTS": "Opravila",
 		"SCHEDULED": "Načrtovano",
-		"RECORDING": "Posnetek"
+		"RECORDING": "Posnetek",
+		"BUTTON_TOOLTIP": "Apply filter {{filterName}} to the table"
 	},
 	"HOTKEYS": {
 		"CHEAT_SHEET": {
@@ -2077,9 +2086,8 @@
 	"STATISTICS": {
 		"NOT_AVAILABLE": "Statistics cannot be displayed at the moment. Please try again later.",
 		"UNSUPPORTED_TYPE": "Sorry, Opencast cannot render this type of statistical data.",
-		"FROM": "Od",
-		"TO": "To",
 		"TOTAL": "Total",
+		"TIMERANGE": "Time Range",
 		"GRANULARITY": "Granularity",
 		"NAVIGATION": {
 			"ORGANIZATION": "Organization"

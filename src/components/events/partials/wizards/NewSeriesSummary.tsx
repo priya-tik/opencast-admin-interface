@@ -1,4 +1,3 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
 import {
 	getSeriesExtendedMetadata,
@@ -19,7 +18,7 @@ import ModalContentTable from "../../../shared/modals/ModalContentTable";
  */
 interface RequiredFormProps {
 	theme: string,
-	acls: TransformedAcl[],
+	policies: TransformedAcl[],
 	selectedPage?: TobiraPage,
 }
 
@@ -39,7 +38,7 @@ const NewSeriesSummary = <T extends RequiredFormProps>({
 	const seriesThemes = useAppSelector(state => getSeriesThemes(state));
 
 	// Get additional information about chosen series theme
-	const theme = seriesThemes.find((theme) => theme.id === formik.values.theme);
+	const theme = seriesThemes.find(theme => theme.id === formik.values.theme);
 
 	return (
 		<>
@@ -65,7 +64,7 @@ const NewSeriesSummary = <T extends RequiredFormProps>({
 
 				{/*Summary access configuration*/}
 				<AccessSummaryTable
-					policies={formik.values.acls}
+					policies={formik.values.policies}
 					header={"EVENTS.SERIES.NEW.ACCESS.CAPTION"}
 				/>
 

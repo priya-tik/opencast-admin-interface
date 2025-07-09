@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { User, deleteUser } from "../../../slices/userSlice";
 import { useAppDispatch } from "../../../store";
@@ -28,11 +28,11 @@ const UsersActionCell = ({
 	const showUserDetails = async () => {
 		await dispatch(fetchUserDetails(row.username));
 
-		modalRef.current?.open()
+		modalRef.current?.open();
 	};
 
 	const hideUserDetails = () => {
-		modalRef.current?.close?.()
+		modalRef.current?.close?.();
 	};
 
 	return (
@@ -47,7 +47,7 @@ const UsersActionCell = ({
 
 			{/* user details modal */}
 			<Modal
-				header={t("USERS.USERS.DETAILS.EDITCAPTION", { username: row.username })}
+				header={t("USERS.USERS.DETAILS.EDITCAPTION", { name: row.username })}
 				classId="user-details-modal"
 				ref={modalRef}
 			>
@@ -58,7 +58,7 @@ const UsersActionCell = ({
 			{(row.manageable || (row.provider !== "opencast" && row.provider !== "system")) &&
 				<ActionCellDelete
 					editAccessRole={"ROLE_UI_USERS_DELETE"}
-					tooltipText={"USERS.USERS.TABLE.TOOLTIP.DETAILS"}
+					tooltipText={"USERS.USERS.TABLE.TOOLTIP.DELETE"}
 					resourceId={row.username}
 					resourceName={row.name}
 					resourceType={"USER"}

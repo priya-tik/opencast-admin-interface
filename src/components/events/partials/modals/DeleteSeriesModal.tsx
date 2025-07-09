@@ -13,12 +13,13 @@ import { availableHotkeys } from "../../../../configs/hotkeysConfig";
 import { isSeries } from "../../../../slices/tableSlice";
 import ModalContent from "../../../shared/modals/ModalContent";
 import NavigationButtons from "../../../shared/NavigationButtons";
+import { NotificationComponent } from "../../../shared/Notifications";
 
 /**
  * This component manges the delete series bulk action
  */
 const DeleteSeriesModal = ({
-	close
+	close,
 }: {
 	close: () => void
 }) => {
@@ -26,9 +27,9 @@ const DeleteSeriesModal = ({
 	const dispatch = useAppDispatch();
 
 	const selectedRows = useAppSelector(state => getSelectedRows(state));
-	const modifiedSelectedRows = selectedRows.map((row) => {
-		return { ...row, hasEvents: false }
-	})
+	const modifiedSelectedRows = selectedRows.map(row => {
+		return { ...row, hasEvents: false };
+	});
 
 	const [allChecked, setAllChecked] = useState(true);
 	const [selectedSeries, setSelectedSeries] = useState(modifiedSelectedRows);
@@ -44,11 +45,11 @@ const DeleteSeriesModal = ({
 	useEffect(() => {
 		async function fetchData() {
 			// Query from backend if deletion of series with events allowed
-			let response = await getSeriesConfig();
+			const response = await getSeriesConfig();
 			setDeleteWithSeriesAllowed(response);
 
 			// Check for each selected series if it has events
-			let series = [];
+			const series = [];
 			for (let i = 0; i < selectedSeries.length; i++) {
 				const selectedSeriesInThisLoop = selectedSeries[i];
 				const events = isSeries(selectedSeriesInThisLoop) ? await hasEvents(selectedSeriesInThisLoop.id.toString()) : false;
@@ -73,7 +74,7 @@ const DeleteSeriesModal = ({
 	const onChangeAllSelected = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const selected = e.target.checked;
 		setAllChecked(selected);
-		let changedSelection = selectedSeries.map((series) => {
+		const changedSelection = selectedSeries.map(series => {
 			return {
 				...series,
 				selected: selected,
@@ -85,7 +86,7 @@ const DeleteSeriesModal = ({
 	// Handle change of checkboxes indicating which series to consider further
 	const onChangeSelected = (e: React.ChangeEvent<HTMLInputElement>, id: string) => {
 		const selected = e.target.checked;
-		let changedSeries = selectedSeries.map((series) => {
+		const changedSeries = selectedSeries.map(series => {
 			if (isSeries(series) && series.id === id) {
 				return {
 					...series,
@@ -100,7 +101,7 @@ const DeleteSeriesModal = ({
 		if (!selected) {
 			setAllChecked(false);
 		}
-		if (changedSeries.every((series) => series.selected === true)) {
+		if (changedSeries.every(series => series.selected === true)) {
 			setAllChecked(true);
 		}
 	};
@@ -108,7 +109,7 @@ const DeleteSeriesModal = ({
 	const isAllowed = () => {
 		let allowed = true;
 		if (!deleteWithSeriesAllowed) {
-			selectedSeries.forEach((series) => {
+			selectedSeries.forEach(series => {
 				if (allowed && series.selected && series.hasEvents) {
 					allowed = false;
 				}
@@ -120,7 +121,7 @@ const DeleteSeriesModal = ({
 	// Check validity for activating delete button
 	const checkValidity = () => {
 		if (isAllowed()) {
-			return !!selectedSeries.some((series) => series.selected === true);
+			return !!selectedSeries.some(series => series.selected === true);
 		}
 		return false;
 	};
@@ -128,16 +129,23 @@ const DeleteSeriesModal = ({
 	return (
 		<>
 			<ModalContent>
-				<div className="modal-alert danger obj">
-					<p>{t("BULK_ACTIONS.DELETE_SERIES_WARNING_LINE1")}</p>
-					<p>{t("BULK_ACTIONS.DELETE_SERIES_WARNING_LINE2")}</p>
-				</div>
+				<NotificationComponent
+					notification={{
+						type: "error",
+						message: "BULK_ACTIONS.DELETE_SERIES_WARNING_LINE1",
+						id: 0,
+					}}
+				/>
 
 				{/* Only show if series not allowed to be deleted */}
 				{!isAllowed() && (
-					<div className="alert sticky warning">
-						<p>{t("BULK_ACTIONS.DELETE.SERIES.CANNOT_DELETE")}</p>
-					</div>
+					<NotificationComponent
+						notification={{
+							type: "warning",
+							message: "BULK_ACTIONS.DELETE.SERIES.CANNOT_DELETE",
+							id: 0,
+						}}
+					/>
 				)}
 
 				<div className="full-col">
@@ -151,7 +159,7 @@ const DeleteSeriesModal = ({
 											<input
 												type="checkbox"
 												checked={allChecked}
-												onChange={(e) => onChangeAllSelected(e)}
+												onChange={e => onChangeAllSelected(e)}
 												className="select-all-cbox"
 											/>
 										</th>
@@ -177,7 +185,7 @@ const DeleteSeriesModal = ({
 													type="checkbox"
 													name="selection"
 													checked={series.selected}
-													onChange={(e) => onChangeSelected(e, isSeries(series) ? series.id : "")}
+													onChange={e => onChangeSelected(e, isSeries(series) ? series.id : "")}
 													className="child-cbox"
 												/>
 											</td>

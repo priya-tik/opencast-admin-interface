@@ -103,7 +103,8 @@
 			"SELECTED_COLUMNS": "Ausgewählte Spalten",
 			"FOOTER_TEXT": "Die Reihenfolge und Auswahl werden automatisch gespeichert. Drücken Sie \"{{resetTranslation}}\", um die Standardansicht wiederherzustellen.",
 			"ADD_COLUMN": "Spalte hinzufügen",
-			"REMOVE_COLUMN": "Spalte entfernen"
+			"REMOVE_COLUMN": "Spalte entfernen",
+			"DRAG_HANDLE_USAGE_INSTRUCTIONS": "Press space bar to start a drag. When dragging you can use the arrow keys to move the item around and escape to cancel. Some screen readers may require you to be in focus mode or to use your pass through key"
 		}
 	},
 	"CONFIRMATIONS": {
@@ -175,7 +176,7 @@
 		"SERIES_PATH_NOT_UPDATED": "Der Serien-Pfad konnte nicht aktualisiert werden",
 		"SERIES_PATH_NOT_REMOVED": "Der Serien-Pfad konnte nicht entfernt werden",
 		"EVENTS_CREATED": "Das Video wurde angelegt",
-		"EVENTS_UPLOAD_STARTED": "Das Video wird hochgeladen… {{ progress }}%",
+		"EVENTS_UPLOAD_STARTED": "Das Video \"{{ title }}\" wird hochgeladen… {{ progress }}%",
 		"EVENTS_NOT_CREATED": "Das Video konnte nicht angelegt werden",
 		"EVENTS_UPDATED": "Das Video wurde erfolgreich aktualisiert",
 		"EVENTS_UPDATED_ALL": "Alle Videos wurden erfolgreich aktualisiert",
@@ -184,6 +185,8 @@
 		"EVENTS_NOT_UPDATED_ALL": "Kein Video konnte gespeichert werden",
 		"EVENTS_PROCESSING_DELETE_WORKFLOW": "Workflow gelöscht.",
 		"EVENTS_PROCESSING_DELETE_WORKFLOW_FAILED": "Workflow konnte nicht gelöscht werden.",
+		"EVENTS_PROCESSING_ACTION_STOP": "Die Videoverarbeitung wurde gestoppt.",
+		"EVENTS_PROCESSING_ACTION_NON_STOP": "Die Videoverarbeitung konnte nicht gestoppt werden.",
 		"SERIES_NOT_UPDATED": "Diese Serie konnte nicht gespeichert werden",
 		"EVENT_DELETED": "Das Video wurde gelöscht.",
 		"EVENT_WILL_BE_DELETED": "Das Video wird gelöscht",
@@ -1171,7 +1174,10 @@
 				"TOOLTIP": {
 					"SERIES": "Nach Videos in dieser Serie filtern",
 					"DETAILS": "Seriendetails anzeigen",
-					"DELETE": "Serie löschen"
+					"DELETE": "Serie löschen",
+					"CREATION": "Filter for this creation date",
+					"ORGANIZER": "Filter for this organizer",
+					"CONTRIBUTORS": "Filter for this contributor"
 				}
 			},
 			"DETAILS": {
@@ -1693,7 +1699,6 @@
 				"HOST_NAME": "Hostname",
 				"NODE_NAME": "Knotenname",
 				"CORES": "Kerne",
-				"COMPLETED": "Jobs abgeschlossen",
 				"RUNNING": "Jobs in Bearbeitung",
 				"QUEUED": "Jobs in Warteschlange",
 				"MAINTENANCE": "Wartungsarbeiten",
@@ -1704,6 +1709,7 @@
 		"SERVICES": {
 			"TABLE": {
 				"CAPTION": "Dienste",
+				"ONLINE": "Online",
 				"STATUS": "Status",
 				"NAME": "Dienstname",
 				"HOST_NAME": "Hostname",
@@ -1974,6 +1980,8 @@
 	"TABLE_EDIT": "Bearbeiten",
 	"TABLE_NEXT": "Nächste Seite",
 	"TABLE_PREVIOUS": "Vorherige Seite",
+	"TABLE_CURRENT": "Current page {{pageNumber}}",
+	"TABLE_NUMBERED": "Go to page {{pageNumber}}",
 	"DASHBOARD": {
 		"RUNNING": "In Verarbeitung",
 		"FINISHED": "Verarbeitet",
@@ -1981,7 +1989,8 @@
 		"FAILED": "Fehlgeschlagen",
 		"FINISHED_WITH_COMMENTS": "Offen",
 		"SCHEDULED": "Geplant",
-		"RECORDING": "Aufnahme"
+		"RECORDING": "Aufnahme",
+		"BUTTON_TOOLTIP": "Apply filter {{filterName}} to the table"
 	},
 	"HOTKEYS": {
 		"CHEAT_SHEET": {
@@ -2077,9 +2086,8 @@
 	"STATISTICS": {
 		"NOT_AVAILABLE": "Die Statistik kann aktuell nicht angezeigt werden. Bitte versuchen Sie es später nochmals.",
 		"UNSUPPORTED_TYPE": "Diese Statistik-Daten können nicht dargestellt werden.",
-		"FROM": "Von",
-		"TO": "Bis",
 		"TOTAL": "Summe",
+		"TIMERANGE": "Zeitspanne",
 		"GRANULARITY": "Granularität",
 		"NAVIGATION": {
 			"ORGANIZATION": "Organisation"

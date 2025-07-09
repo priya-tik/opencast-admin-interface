@@ -103,7 +103,8 @@
 			"SELECTED_COLUMNS": "Seçili sütunlar",
 			"FOOTER_TEXT": "Sıralama ve seçim otomatik olarak kaydedilecek. Varsayılan görünümü yüklemek için \"{{resetTranslation}}\" düğmesine tıklayın.",
 			"ADD_COLUMN": "Add column",
-			"REMOVE_COLUMN": "Remove column"
+			"REMOVE_COLUMN": "Remove column",
+			"DRAG_HANDLE_USAGE_INSTRUCTIONS": "Press space bar to start a drag. When dragging you can use the arrow keys to move the item around and escape to cancel. Some screen readers may require you to be in focus mode or to use your pass through key"
 		}
 	},
 	"CONFIRMATIONS": {
@@ -175,7 +176,7 @@
 		"SERIES_PATH_NOT_UPDATED": "The series path could not be updated",
 		"SERIES_PATH_NOT_REMOVED": "The series path could not be removed",
 		"EVENTS_CREATED": "Etkinlik oluşturuldu",
-		"EVENTS_UPLOAD_STARTED": "Etkinlik yüklenmekte…",
+		"EVENTS_UPLOAD_STARTED": "The event \"{{ title }}\" is being uploaded… {{ progress }}%",
 		"EVENTS_NOT_CREATED": "Etkinlik oluşturulamadı",
 		"EVENTS_UPDATED": "The event has been successfully updated",
 		"EVENTS_UPDATED_ALL": "Tüm etkinlikler başarıyla güncellendi",
@@ -184,6 +185,8 @@
 		"EVENTS_NOT_UPDATED_ALL": "Etkinliklerden hiçbiri kaydedilemedi",
 		"EVENTS_PROCESSING_DELETE_WORKFLOW": "Silinen iş akışı.",
 		"EVENTS_PROCESSING_DELETE_WORKFLOW_FAILED": "İş akışı silinemedi.",
+		"EVENTS_PROCESSING_ACTION_STOP": "The event processing has been stopped.",
+		"EVENTS_PROCESSING_ACTION_NON_STOP": "The event processing could not be stopped.",
 		"SERIES_NOT_UPDATED": "Seriler kaydedilemedi",
 		"EVENT_DELETED": "Etkinlik silindi.",
 		"EVENT_WILL_BE_DELETED": "Etkinlik siliniyor",
@@ -892,7 +895,7 @@
 						"ADDITIONAL_ACTIONS": "Ek Eylemler",
 						"ACTION": "Eylemler",
 						"NEW": "Yeni sözleşme",
-						"DETAILS": "Ayrıntılar"
+						"DETAILS": "Details"
 					},
 					"ROLES": {
 						"LABEL": "Select or create a role"
@@ -1171,7 +1174,10 @@
 				"TOOLTIP": {
 					"SERIES": "Bu seri için etkinlikleri filtrele",
 					"DETAILS": "Seri ayrıntılarını aç",
-					"DELETE": "Seriyi sil"
+					"DELETE": "Seriyi sil",
+					"CREATION": "Filter for this creation date",
+					"ORGANIZER": "Filter for this organizer",
+					"CONTRIBUTORS": "Filter for this contributor"
 				}
 			},
 			"DETAILS": {
@@ -1202,7 +1208,7 @@
 						"ADDITIONAL_ACTIONS": "Ek eylemler",
 						"ACTION": "Eylemler",
 						"NEW": "Yeni sözleşme",
-						"DETAILS": "Ayrıntılar",
+						"DETAILS": "Details",
 						"REPLACE_EVENT_ACLS": "Etkinlik izinlerini güncelle",
 						"REPLACE_EVENT_ACLS_HINT": "Bu dizinin tüm etkinliklerinin geçerli izinlere sahip olduğundan emin olun",
 						"LOAD_MORE_LIMIT": "policies shown.",
@@ -1461,7 +1467,7 @@
 						"ADDITIONAL_ACTIONS": "Ek Eylemler",
 						"ACTION": "Eylemler",
 						"NEW": "Yeni sözleşme",
-						"DETAILS": "Ayrıntılar",
+						"DETAILS": "Details",
 						"DESCRIPTION": "Lütfen önceden yapılandırılmış bir ilkeler kümesi seçim veya aşağıdaki özel ilkelerden ekleyin"
 					},
 					"ROLES": {
@@ -1693,7 +1699,6 @@
 				"HOST_NAME": "Ana bilgisayar adı",
 				"NODE_NAME": "Düğüm adı",
 				"CORES": "Çekirdekler",
-				"COMPLETED": "Tamamlanan işler",
 				"RUNNING": "Çalışan işler",
 				"QUEUED": "Kuyruktaki işler",
 				"MAINTENANCE": "Bakım",
@@ -1704,6 +1709,7 @@
 		"SERVICES": {
 			"TABLE": {
 				"CAPTION": "Hizmetler",
+				"ONLINE": "Online",
 				"STATUS": "Durum",
 				"NAME": "Hizmet adı",
 				"HOST_NAME": "Ana bilgisayar adı",
@@ -1974,6 +1980,8 @@
 	"TABLE_EDIT": "Düzenle",
 	"TABLE_NEXT": "Next page",
 	"TABLE_PREVIOUS": "Previous page",
+	"TABLE_CURRENT": "Current page {{pageNumber}}",
+	"TABLE_NUMBERED": "Go to page {{pageNumber}}",
 	"DASHBOARD": {
 		"RUNNING": "Çalışıyor",
 		"FINISHED": "Tamamlandı",
@@ -1981,7 +1989,8 @@
 		"FAILED": "Başarısız",
 		"FINISHED_WITH_COMMENTS": "Yapılacaklar",
 		"SCHEDULED": "Zamanlandı",
-		"RECORDING": "Kayıt ediliyor"
+		"RECORDING": "Kayıt ediliyor",
+		"BUTTON_TOOLTIP": "Apply filter {{filterName}} to the table"
 	},
 	"HOTKEYS": {
 		"CHEAT_SHEET": {
@@ -2077,9 +2086,8 @@
 	"STATISTICS": {
 		"NOT_AVAILABLE": "İstatistiklere şu anda erişilemiyor. Lütfen daha sonra tekrar deneyin.",
 		"UNSUPPORTED_TYPE": "Üzgünüz, Opencast bu tür istatistiksel veriyi oluşturamıyor.",
-		"FROM": "den",
-		"TO": "Kime",
 		"TOTAL": "Toplam",
+		"TIMERANGE": "Time Range",
 		"GRANULARITY": "Ayrıntı Düzeyi",
 		"NAVIGATION": {
 			"ORGANIZATION": "Organization"
