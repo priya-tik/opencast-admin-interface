@@ -224,7 +224,6 @@ const ResourceDetailsAccessPolicyTab = ({
 		for (let i = 0; i < sortedNewPolicies.length; i++) {
 			if (
 				sortedNewPolicies[i].role !== sortedInitialPolicies[i].role ||
-				sortedNewPolicies[i].read !== sortedInitialPolicies[i].read ||
 				sortedNewPolicies[i].write !== sortedInitialPolicies[i].write ||
 				sortedNewPolicies[i].actions.length !==
 					sortedInitialPolicies[i].actions.length
@@ -418,13 +417,7 @@ const ResourceDetailsAccessPolicyTab = ({
 																	) /* <!-- Role --> */
 																}
 															</th>
-															<th className="fit">
-																{
-																	t(
-																		"EVENTS.EVENTS.DETAILS.ACCESS.ACCESS_POLICY.READ"
-																	) /* <!-- Read --> */
-																}
-															</th>
+
 															<th className="fit">
 																{
 																	t(
@@ -504,31 +497,6 @@ const ResourceDetailsAccessPolicyTab = ({
 																					</td>
 
 																					{/* Checkboxes for policy.read and policy.write */}
-																					<td className="fit text-center">
-																						<Field
-																							type="checkbox"
-																							name={`policies.${index}.read`}
-																							disabled={
-																								transactions.read_only ||
-																								!hasAccess(
-																									editAccessRole,
-																									user
-																								) ||
-																								(aclDefaults && aclDefaults["read_readonly"] !== "false")
-																							}
-																							className={`${
-																								transactions.read_only
-																									? "disabled"
-																									: "false"
-																							}`}
-																							onChange={(read: React.ChangeEvent<HTMLInputElement>) =>
-																								replace(index, {
-																									...policy,
-																									read: read.target.checked,
-																								})
-																							}
-																						/>
-																					</td>
 																					<td className="fit text-center">
 																						<Field
 																							type="checkbox"
@@ -623,7 +591,7 @@ const ResourceDetailsAccessPolicyTab = ({
 																	{!transactions.read_only &&
 																		hasAccess(editAccessRole, user) && (
 																			<tr>
-																				<td colSpan={5}>
+																				<td colSpan={4}>
 																					<ButtonLikeAnchor
 																						onClick={() =>
 																							push(handleNewPolicy())
