@@ -17,7 +17,14 @@ export const getFilters = (state: RootState, resource: string) =>
 export const getTextFilter = createSelector(
 	[getAllTextFilter, (state, resource: Resource) => resource],
 	(textFilter, resource) => {
-		const textFilte = textFilter.find(obj => obj.resource === resource);
-		return textFilte?.text ?? "";
+		if (Array.isArray(textFilter)) {
+			const textFilte = textFilter.find(obj => obj.resource === resource);
+			return textFilte?.text ?? "";
+		} else {
+			console.warn("clearing localStorage and reloading...");
+			localStorage.clear();
+			window.location.href = window.location.href + "?forceReload=" + Date.now();
+			return "";
+		}
 	},
 );
