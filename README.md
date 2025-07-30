@@ -97,3 +97,6 @@ Configuration
 The Admin UI frontend cannot be directly configured. Rather, it adapts to the
 various configurations in the Opencast backend. Fore more information, take a look
 at [Opencast's documentation](https://docs.opencast.org).
+
+
+github_actions
