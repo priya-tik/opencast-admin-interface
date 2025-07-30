@@ -99,4 +99,3 @@ various configurations in the Opencast backend. Fore more information, take a lo
 at [Opencast's documentation](https://docs.opencast.org).
 
 
-github_actions_test
